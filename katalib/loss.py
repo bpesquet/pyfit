@@ -11,11 +11,15 @@ class Loss:
     """
 
     def loss(self, actual, predicted):
-        """Compute the loss between actual and predicted values"""
+        """
+        Compute the loss between actual and predicted values
+        """
         raise NotImplementedError
 
     def grad(self, actual, predicted):
-        """Compute the gradient (partial derivatives) of the loss"""
+        """
+        Compute the gradient (partial derivatives) of the loss
+        """
         raise NotImplementedError
 
 

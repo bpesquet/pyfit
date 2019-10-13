@@ -9,7 +9,9 @@ from katalib.loss import MSE
 
 
 def test_mse_loss():
-    """Test MSE loss computation"""
+    """
+    Test MSE loss computation
+    """
 
     actual = np.array([3, -0.5, 2, 7])
     predicted = np.array([2.5, 0.0, 2, 8])
@@ -27,7 +29,9 @@ def test_mse_loss():
 
 
 def test_mse_grad():
-    """Test MSE gradient computation"""
+    """
+    Test MSE gradient computation
+    """
 
     grad = MSE().grad(3, 2.9)
     assert isclose(grad, -0.2)
