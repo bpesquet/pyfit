@@ -7,21 +7,17 @@ from sklearn.metrics import mean_squared_error as mse_sk
 from mlcore.metrics import mean_squared_error
 
 
-def test_mse():
+def test_mse() -> None:
     """
     Compare MSE results to scikit-learn's
     """
 
-    expected = np.array([3, -0.5, 2, 7])
-    predicted = np.array([2.5, 0.0, 2, 8])
+    expected_list = (np.array([3, -0.5, 2, 7]),
+                     np.array([[0.5, 1], [-1, 1], [7, -6]]))
+    predicted_list = (np.array([2.5, 0.0, 2, 8]),
+                      np.array([[0, 2], [-1, 2], [8, -5]]))
 
-    error = mean_squared_error(expected, predicted)
-    error_sk = mse_sk(expected, predicted)
-    assert error == error_sk
-
-    expected = np.array([[0.5, 1], [-1, 1], [7, -6]])
-    predicted = np.array([[0, 2], [-1, 2], [8, -5]])
-
-    error = mean_squared_error(expected, predicted)
-    error_sk = mse_sk(expected, predicted)
-    assert error == error_sk
+    for expected, predicted in zip(expected_list, predicted_list):
+        error = mean_squared_error(expected, predicted)
+        error_sk = mse_sk(expected, predicted)
+        assert error == error_sk
