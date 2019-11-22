@@ -2,16 +2,15 @@
 Unit tests for metrics
 """
 
+# Docstring are superfluous for test functions
+# pylint: disable=missing-docstring
+
 import numpy as np
 from sklearn.metrics import mean_squared_error as mse_sk
 from mlcore.metrics import mean_squared_error
 
 
 def test_mse() -> None:
-    """
-    Compare MSE results to scikit-learn's
-    """
-
     expected_list = (np.array([3, -0.5, 2, 7]),
                      np.array([[0.5, 1], [-1, 1], [7, -6]]))
     predicted_list = (np.array([2.5, 0.0, 2, 8]),
