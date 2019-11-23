@@ -7,8 +7,9 @@ python:
 # Install dependencies.
 install:
   - pip install -r requirements.txt
+  - pip install pylint mypy
 
 # Run linting and tests.
 script:
-  - pylint
-  - pytest
+  - pylint .
+  - pytest .
