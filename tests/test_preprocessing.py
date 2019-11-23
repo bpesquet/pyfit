@@ -44,3 +44,15 @@ def test_scale_standard() -> None:
     # https://stackoverflow.com/a/35325039
     assert isclose(mean_scaled, 0, abs_tol=1.0e-9)
     assert isclose(std_scaled, 1)
+
+
+def test_scale_standard_mean_std() -> None:
+    # Generate a random(3, 3) tensor with values between 1 and 10
+    x = np.random.randint(1, 10, (3, 3))
+
+    # Make scaling do nothing (mean=0, std=1)
+    x_scaled = scale_standard(x, mean=0, std=1)
+
+    # Check that mean and std haven't been modified by scaling
+    assert x_scaled.mean() == x.mean()
+    assert x_scaled.std() == x.std()
