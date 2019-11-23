@@ -10,8 +10,5 @@ install:
 
 # Run linting and tests.
 script:
-  - pylint .
-
-# Turn email notifications off.
-notifications:
-  email: false
+  - pylint
+  - pytest
