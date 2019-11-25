@@ -3,7 +3,7 @@ Utilities for preparing data before training
 """
 
 from typing import Tuple
-from mlcore.tensor import Tensor
+from pyfit.tensor import Tensor
 
 
 def train_test_split(data: Tensor, test_ratio: float = 0.25) -> Tuple[Tensor, Tensor]:

@@ -7,7 +7,7 @@ Unit tests from preprocessing functions
 
 from math import isclose
 import numpy as np
-from mlcore.preprocessing import train_test_split, scale_min_max, scale_standard
+from pyfit.preprocessing import train_test_split, scale_min_max, scale_standard
 
 
 def test_train_test_split() -> None:

@@ -3,7 +3,7 @@ Regression metrics
 """
 
 import numpy as np
-from mlcore.tensor import Tensor
+from pyfit.tensor import Tensor
 
 
 def mean_squared_error(expected: Tensor, predicted: Tensor) -> float:

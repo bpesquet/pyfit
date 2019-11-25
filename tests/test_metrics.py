@@ -7,7 +7,7 @@ Unit tests for metrics
 
 import numpy as np
 from sklearn.metrics import mean_squared_error as mse_sk
-from mlcore.metrics import mean_squared_error
+from pyfit.metrics import mean_squared_error
 
 
 def test_mse() -> None:
