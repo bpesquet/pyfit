@@ -9,5 +9,5 @@ install:
 
 # Run linting and tests.
 script:
-  - pylint ./mlcore
+  - pylint ./pyfit
   - pytest
