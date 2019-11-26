@@ -6,8 +6,9 @@ Unit tests for metrics
 # pylint: disable=missing-docstring
 
 import numpy as np
-from sklearn.metrics import mean_squared_error as mse_sk
-from pyfit.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error as mse_sk, \
+    euclidean_distances as eucl_dist_sk
+from pyfit.metrics import mean_squared_error, euclidean_distance
 
 
 def test_mse() -> None:
@@ -20,3 +21,19 @@ def test_mse() -> None:
         error = mean_squared_error(expected, predicted)
         error_sk = mse_sk(expected, predicted)
         assert error == error_sk
+
+
+def test_euclidean_distance() -> None:
+    # a = np.array([1, 1.5])
+    # b = np.array([3, 3])
+
+    # dist = euclidean_distance(a, b)
+    # dist_sk = eucl_dist_sk(a, b)
+    # assert dist == dist_sk
+
+    a = np.random.rand(3, 3)
+    b = np.random.rand(3, 3)
+
+    dist = euclidean_distance(a, b)
+    dist_sk = np.linalg.norm(a - b)
+    assert dist == dist_sk
