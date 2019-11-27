@@ -34,25 +34,27 @@ def test_scale_min_max() -> None:
 
 
 def test_scale_standard() -> None:
-    # Generate a random(3, 3) tensor with values between 1 and 10
+    # Generate a random tensor with int values between 1 and 10
     x = np.random.randint(1, 10, (3, 3))
 
     x_scaled = scale_standard(x)
 
-    mean_scaled = x_scaled.mean()
-    std_scaled = x_scaled.std()
+    mean_scaled: float = x_scaled.mean()
+    std_scaled: float = x_scaled.std()
     # https://stackoverflow.com/a/35325039
     assert isclose(mean_scaled, 0, abs_tol=1.0e-9)
     assert isclose(std_scaled, 1)
 
 
 def test_scale_standard_mean_std() -> None:
-    # Generate a random(3, 3) tensor with values between 1 and 10
-    x = np.random.randint(1, 10, (3, 3))
+    # Generate a random tensor with int values between 1 and 10
+    x = np.random.randint(1, 10, (3, 4))
 
-    # Make scaling do nothing (mean=0, std=1)
-    x_scaled = scale_standard(x, mean=0, std=1)
+    # Scale with zero mean and unit variance (should do nothing)
+    zero_mean = np.zeros(x.shape[1])
+    unit_variance = np.ones(x.shape[1])
+    x_scaled = scale_standard(x, mean=zero_mean, std=unit_variance)
 
-    # Check that mean and std haven't been modified by scaling
+    # Check that mean and standard deviation haven't been modified by scaling
     assert x_scaled.mean() == x.mean()
     assert x_scaled.std() == x.std()

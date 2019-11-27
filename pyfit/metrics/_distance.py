@@ -3,10 +3,9 @@ Distance metrics
 """
 
 import numpy as np
-from pyfit.tensor import Tensor
 
 
-def euclidean_distance(a: Tensor, b: Tensor) -> float:
+def euclidean_distance(a: np.ndarray, b: np.ndarray) -> float:
     """
     Euclidean distance: https://en.wikipedia.org/wiki/Euclidean_distance
     """
