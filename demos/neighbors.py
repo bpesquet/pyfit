@@ -11,7 +11,7 @@ from sklearn.datasets import make_classification
 from pyfit.neighbors import KNeighborsClassifier
 
 
-def demo_knn_classifier():
+def demo_knn_classifier() -> None:
     x, y = make_classification(
         n_samples=500,
         n_features=5,
