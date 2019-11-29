@@ -2,6 +2,9 @@
 Core definitions for models and training
 """
 
+# Temporarily disable annoying Pylint check
+# pylint: disable=too-few-public-methods
+
 import numpy as np
 
 
