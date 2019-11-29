@@ -10,8 +10,8 @@ def train_test_split(data: np.ndarray, test_ratio: float = 0.25) -> Tuple[np.nda
     """
     Split data between training and test sets, according to a chosen test ratio
     """
-    samples_count: int = data.shape[0]
-    split_index: int = samples_count - round(samples_count * test_ratio)
+    n_samples: int = data.shape[0]
+    split_index: int = n_samples - round(n_samples * test_ratio)
     return data[:split_index, :], data[split_index:, :]
 
 
