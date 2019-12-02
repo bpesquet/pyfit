@@ -11,7 +11,14 @@ from pyfit.preprocessing import train_test_split, scale_min_max, scale_standard
 
 
 def test_train_test_split() -> None:
-    # Generate a random (3,3) tensor
+    # Generate a random 1D tensor
+    x = np.random.randint(1, 10, (17,))
+
+    x_train, x_test = train_test_split(x, test_ratio=.3)
+    assert x_train.shape == (12, )
+    assert x_test.shape == (5, )
+
+    # Generate a random 2D tensor
     x = np.random.rand(30, 3)
 
     x_train, x_test = train_test_split(x, test_ratio=.33)

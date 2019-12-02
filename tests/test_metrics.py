@@ -7,8 +7,8 @@ Unit tests for metrics
 
 from math import isclose
 import numpy as np
-from sklearn.metrics import mean_squared_error as mse_sk
-from pyfit.metrics import mean_squared_error, euclidean_distance
+from sklearn.metrics import mean_squared_error as mse_sk, accuracy_score
+from pyfit.metrics import mean_squared_error, euclidean_distance, accuracy
 
 
 def test_mse() -> None:
@@ -37,3 +37,12 @@ def test_euclidean_distance() -> None:
     dist = euclidean_distance(a, b)
     dist_sk = np.linalg.norm(a - b)
     assert isclose(dist, dist_sk)
+
+
+def test_accuracy() -> None:
+    y_true = np.array([0, 1, 2, 3])
+    y_pred = np.array([0, 2, 1, 3])
+
+    acc = accuracy(y_true, y_pred)
+    acc_sk = accuracy_score(y_true, y_pred)
+    assert acc == acc_sk

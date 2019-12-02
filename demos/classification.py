@@ -6,9 +6,10 @@ Demos of neighbors-based algorithms
 # Docstring are superfluous for demo functions
 # pylint: disable=missing-docstring
 
-from sklearn.model_selection import train_test_split
 from sklearn.datasets import make_classification
+from pyfit.preprocessing import train_test_split
 from pyfit.neighbors import KNeighborsClassifier
+from pyfit.metrics import accuracy
 
 
 def demo_knn_classifier() -> None:
@@ -23,13 +24,13 @@ def demo_knn_classifier() -> None:
         class_sep=1.5,
     )
 
-    x_train, x_test, y_train, y_test = train_test_split(
-        x, y, test_size=0.1, random_state=1111)
+    x_train, x_test = train_test_split(x, test_ratio=0.1)
+    y_train, y_test = train_test_split(y, test_ratio=0.1)
 
     clf = KNeighborsClassifier(k=4)
     clf.fit(x_train, y_train)
-    predictions = clf.predict(x_test)
-    print(predictions)
+    y_pred = clf.predict(x_test)
+    print(f'K-NN classifier accuracy: {accuracy(y_test, y_pred) * 100}%')
 
 
 if __name__ == "__main__":
