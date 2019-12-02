@@ -12,7 +12,9 @@ def train_test_split(x: Tensor, test_ratio: float = 0.25) -> Tuple[Tensor, Tenso
     """
     n_samples: int = x.shape[0]
     split_index: int = n_samples - round(n_samples * test_ratio)
-    return x[:split_index, :], x[split_index:, :]
+    if x.ndim > 1:
+        return x[:split_index, :], x[split_index:, :]
+    return x[:split_index], x[split_index:]
 
 
 def scale_min_max(x: Tensor) -> Tensor:
