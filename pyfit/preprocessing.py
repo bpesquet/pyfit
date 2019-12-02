@@ -2,35 +2,38 @@
 Utilities for preparing data before training
 """
 
-from typing import Tuple, Optional
-import numpy as np
+from typing import Tuple
+from pyfit import Tensor
 
 
-def train_test_split(data: np.ndarray, test_ratio: float = 0.25) -> Tuple[np.ndarray, np.ndarray]:
+def train_test_split(x: Tensor, test_ratio: float = 0.25) -> Tuple[Tensor, Tensor]:
     """
-    Split data between training and test sets, according to a chosen test ratio
+    Split a tensor between training and test sets, according to a chosen test ratio
     """
-    n_samples: int = data.shape[0]
+    n_samples: int = x.shape[0]
     split_index: int = n_samples - round(n_samples * test_ratio)
-    return data[:split_index, :], data[split_index:, :]
+    return x[:split_index, :], x[split_index:, :]
 
 
-def scale_min_max(data: np.ndarray) -> np.ndarray:
+def scale_min_max(x: Tensor) -> Tensor:
     """
-    Scale data into the [0..1] range
+    Scale a tensor into the [0..1] range
     """
-    return (data - data.min(axis=0)) / (data.max(axis=0) - data.min(axis=0))
+    # Compute min and max feature-wise
+    min_x: Tensor = x.min(axis=0)
+    max_x: Tensor = x.max(axis=0)
+
+    return (x - min_x) / (max_x - min_x)
 
 
-def scale_standard(data: np.ndarray, mean: Optional[np.ndarray] = None,
-                   std: Optional[np.ndarray] = None) -> np.ndarray:
+def scale_standard(x: Tensor, *, mean: Tensor = None, std: Tensor = None) -> Tensor:
     """
-    Scale data to zero mean and unit variance
+    Scale a tensor to zero mean and unit variance
     """
     if mean is None:
         # Compute mean feature-wise
-        mean = data.mean(axis=0)
+        mean = x.mean(axis=0)
     if std is None:
         # Compute standard deviation feature-wise
-        std = data.std(axis=0)
-    return (data - mean) / std
+        std = x.std(axis=0)
+    return (x - mean) / std

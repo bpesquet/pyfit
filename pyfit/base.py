@@ -2,23 +2,30 @@
 Core definitions for models and training
 """
 
+# pylint: disable=unused-import
+
 # Temporarily disable annoying Pylint check
 # pylint: disable=too-few-public-methods
 
 import numpy as np
 
+# A tensor is a multidimensional array
+# Use NumPy n-dimensional array class as our Tensor class
+from numpy import ndarray as Tensor
+
 
 class BaseEstimator:
     """
-    Base abstract class for all estimators
+    Abstract base class for all estimators
     """
 
-    samples: np.ndarray = None
-    targets: np.ndarray = None
+    x_train: Tensor = None
+    y_train: Tensor = None
 
-    def fit(self, samples: np.ndarray, targets: np.ndarray) -> None:
+    def fit(self, x_train: Tensor, y_train: Tensor) -> None:
         """
-        Stores samples and targets for use in derived classes
+        Fit the model using x_train as training data and y_train as target values
         """
-        self.samples = samples
-        self.targets = targets
+        # Stores training data and targets for use in derived classes
+        self.x_train = x_train
+        self.y_train = y_train

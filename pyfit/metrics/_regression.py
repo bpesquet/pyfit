@@ -3,10 +3,11 @@ Regression metrics
 """
 
 import numpy as np
+from pyfit import Tensor
 
 
-def mean_squared_error(expected: np.ndarray, predicted: np.ndarray) -> float:
+def mean_squared_error(y_true: Tensor, y_pred: Tensor) -> float:
     """
     Compute Mean Squared Error
     """
-    return np.mean((expected - predicted) ** 2)
+    return np.mean((y_true - y_pred) ** 2)

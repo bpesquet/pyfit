@@ -4,12 +4,13 @@ Distance metrics
 
 from typing import Callable
 import numpy as np
+from pyfit import Tensor
 
 # Distance function type
-Distance = Callable[[np.ndarray, np.ndarray], float]
+Distance = Callable[[Tensor, Tensor], float]
 
 
-def euclidean_distance(a: np.ndarray, b: np.ndarray) -> float:
+def euclidean_distance(a: Tensor, b: Tensor) -> float:
     """
     Euclidean distance: https://en.wikipedia.org/wiki/Euclidean_distance
     """

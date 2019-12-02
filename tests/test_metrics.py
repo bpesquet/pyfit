@@ -7,8 +7,7 @@ Unit tests for metrics
 
 from math import isclose
 import numpy as np
-from sklearn.metrics import mean_squared_error as mse_sk, \
-    euclidean_distances as eucl_dist_sk
+from sklearn.metrics import mean_squared_error as mse_sk
 from pyfit.metrics import mean_squared_error, euclidean_distance
 
 
