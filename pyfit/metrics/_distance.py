@@ -14,4 +14,7 @@ def euclidean_distance(a: Tensor, b: Tensor) -> float:
     """
     Euclidean distance: https://en.wikipedia.org/wiki/Euclidean_distance
     """
-    return np.sqrt(np.sum((a - b) ** 2))
+    squared_diff: Tensor = (a - b) ** 2
+    sum_squared_diff: float = np.sum(squared_diff)
+    eucl_dist: float = np.sqrt(sum_squared_diff)
+    return eucl_dist
