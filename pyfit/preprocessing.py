@@ -3,18 +3,20 @@ Utilities for preparing data before training
 """
 
 from typing import Tuple
+import numpy as np
 from pyfit import Tensor
 
 
-def train_test_split(x: Tensor, test_ratio: float = 0.25) -> Tuple[Tensor, Tensor]:
+def train_test_split(x: Tensor, *, test_ratio: float = 0.25) -> Tuple[Tensor, Tensor]:
     """
-    Split a tensor between training and test sets, according to a chosen test ratio
+    Split and shuffle a tensor between training and test sets, according to a chosen test ratio
     """
     n_samples: int = x.shape[0]
-    split_index: int = n_samples - round(n_samples * test_ratio)
+    split_index: int = round(n_samples * (1 - test_ratio))
+    x_shuffled: Tensor = np.random.permutation(x)
     if x.ndim > 1:
-        return x[:split_index, :], x[split_index:, :]
-    return x[:split_index], x[split_index:]
+        return x_shuffled[:split_index, :], x_shuffled[split_index:, :]
+    return x_shuffled[:split_index], x_shuffled[split_index:]
 
 
 def scale_min_max(x: Tensor) -> Tensor:
@@ -24,7 +26,6 @@ def scale_min_max(x: Tensor) -> Tensor:
     # Compute min and max feature-wise
     min_x: Tensor = x.min(axis=0)
     max_x: Tensor = x.max(axis=0)
-
     return (x - min_x) / (max_x - min_x)
 
 
