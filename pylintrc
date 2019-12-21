@@ -424,7 +424,9 @@ good-names=i,
            y,
            z,
            a,
-           b
+           b,
+           F,
+           f
 
 # Include a hint for the correct naming format with invalid-name.
 include-naming-hint=no

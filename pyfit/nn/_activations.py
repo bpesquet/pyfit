@@ -2,6 +2,9 @@
 Activation functions
 """
 
+# Docstrings are superfluous for activation functions
+# pylint: disable=missing-docstring
+
 import numpy as np
 from pyfit import Tensor
 

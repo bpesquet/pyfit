@@ -8,6 +8,9 @@ from ._layers import Differentiable
 
 
 class Sequential(Differentiable):
+    """
+    Neural network defined as a linear stack of layers
+    """
     def __init__(self, layers: Sequence[Differentiable]) -> None:
         self.layers = layers
 

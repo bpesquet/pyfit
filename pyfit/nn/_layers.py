@@ -2,6 +2,9 @@
 Layer classes
 """
 
+# Temporarily disable annoying Pylint check
+# pylint: disable=too-few-public-methods
+
 from typing import Dict, Callable
 import numpy as np
 from pyfit import Tensor
@@ -11,6 +14,9 @@ F = Callable[[Tensor], Tensor]
 
 
 class Differentiable:
+    """
+    Base class for all differentiable computations
+    """
     def forward(self, inputs: Tensor) -> Tensor:
         """
         Produce the output corresponding to these inputs
@@ -25,18 +31,23 @@ class Differentiable:
 
 
 class ParametersMixin:
+    """
+    Mixin for adding parameters and gradient values to a class
+    """
     def __init__(self) -> None:
         self.params: Dict[str, Tensor] = {}
         self.grads: Dict[str, Tensor] = {}
 
 
 class Linear(Differentiable, ParametersMixin):
+    """
+    Linear layer
+    """
     def __init__(self, *, in_features: int, out_features: int) -> None:
         super().__init__()
         # Randomly init weights and bias
-        self.params['w']: Tensor = np.random.randn(
-            in_features, out_features)
-        self.params['b']: Tensor = np.random.randn(out_features)
+        self.params['w'] = np.random.randn(in_features, out_features)
+        self.params['b'] = np.random.randn(out_features)
         # Init inputs
         self.inputs: Tensor = None
 
@@ -51,6 +62,9 @@ class Linear(Differentiable, ParametersMixin):
 
 
 class Activation(Differentiable):
+    """
+    Layer corresponding to an activation function
+    """
     def __init__(self, f: F, f_prime: F) -> None:
         super().__init__()
         self.f = f
@@ -67,5 +81,8 @@ class Activation(Differentiable):
 
 
 class Tanh(Activation):
+    """
+    Tanh activation
+    """
     def __init__(self) -> None:
         super().__init__(tanh, tanh_prime)
