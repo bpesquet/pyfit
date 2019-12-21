@@ -1,8 +1,8 @@
 """
-Unit tests from preprocessing functions
+Unit tests for preprocessing functions
 """
 
-# Docstring are superfluous for test functions
+# Docstrings are superfluous for test functions
 # pylint: disable=missing-docstring
 
 from math import isclose

@@ -2,7 +2,7 @@
 Unit tests for metrics
 """
 
-# Docstring are superfluous for test functions
+# Docstrings are superfluous for test functions
 # pylint: disable=missing-docstring
 
 from math import isclose

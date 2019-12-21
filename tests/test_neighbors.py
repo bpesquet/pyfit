@@ -2,7 +2,7 @@
 Unit tests for neighbors-based algorithms
 """
 
-# Docstring are superfluous for test functions
+# Docstrings are superfluous for test functions
 # pylint: disable=missing-docstring
 
 import numpy as np
