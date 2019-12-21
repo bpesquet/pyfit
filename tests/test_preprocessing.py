@@ -49,7 +49,7 @@ def test_scale_standard() -> None:
     mean_scaled: float = x_scaled.mean()
     std_scaled: float = x_scaled.std()
     # https://stackoverflow.com/a/35325039
-    assert isclose(mean_scaled, 0, abs_tol=1.0e-9)
+    assert isclose(mean_scaled, 0, abs_tol=1.0e-8)
     assert isclose(std_scaled, 1)
 
 
