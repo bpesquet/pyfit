@@ -13,3 +13,11 @@ As a Python package, it also strives to define a clean, pythonic API and follow 
 ## Status
 
 **pyfit** is currently under active development. See [Progress](https://github.com/bpesquet/pyfit/projects/1) for details.
+
+## Content
+
+- Data Preprocessing [ [Source](pyfit/preprocessing.py) | [Tests](tests/test_preprocessing.py) ]
+- Metrics [ [Source](pyfit/metrics/) | [Tests](tests/test_metrics.py) ]
+- K-Nearest Neighbors [ [Source](pyfit/neighbors.py) | [Tests](tests/test_neighbors.py) ]
+- Neural Networks [ [Source](pyfit/nn/) ]
+- ... More to come!
