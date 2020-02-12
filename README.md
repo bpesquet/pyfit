@@ -2,6 +2,7 @@
 [![Python Versions](https://img.shields.io/pypi/pyversions/pyfit.svg)](https://pypi.org/project/pyfit)
 [![PyPI Version](https://img.shields.io/pypi/v/pyfit.svg)](https://pypi.org/project/pyfit)
 [![PyPI status](https://img.shields.io/pypi/status/pyfit.svg)](https://pypi.python.org/project/pyfit)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # pyfit
 
@@ -11,11 +12,11 @@
 
 This project's main goal is to help ML students and enthusiasts get a deeper understanding of the Machine Learning workflow and main algorithms, by implementing them from scratch.
 
-As a Python package, it also strives to define a clean, pythonic API and follow good coding practices. It uses [type annotations](https://www.python.org/dev/peps/pep-0484/), [pylint](https://www.pylint.org/) and [mypy](http://mypy-lang.org/) for linting, and [pytest](https://pytest.org) for testing.
+As a Python package, it also strives to define a clean, pythonic API and follow good coding practices, including [type annotations](https://www.python.org/dev/peps/pep-0484/).
 
 ## Status
 
-**pyfit** is currently under active development. See [Progress](https://github.com/bpesquet/pyfit/projects/1) for details.
+**pyfit** is a work in progress currently in alpha status. See [Progress](https://github.com/bpesquet/pyfit/projects/1) for details.
 
 ## Content
 
@@ -24,3 +25,18 @@ As a Python package, it also strives to define a clean, pythonic API and follow 
 - K-Nearest Neighbors [ [Source](pyfit/neighbors.py) | [Tests](tests/test_neighbors.py) ]
 - Neural Networks [ [Source](pyfit/nn/) ]
 - ... More to come!
+
+## Development Notes
+
+**pyfit** uses the following tools:
+
+- [black](https://github.com/psf/black) for code formatting.
+- [pylint](https://www.pylint.org/) and [mypy](http://mypy-lang.org/) for linting.
+- [pytest](https://pytest.org) for testing.
+
+Run the following commands to check the codebase.
+
+```bash
+python -m pylint ./pyfit    # linting
+python -m pytest .          # test suite
+```
