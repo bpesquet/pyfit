@@ -30,7 +30,7 @@ def demo_knn_classifier() -> None:
     clf = KNeighborsClassifier(k=4)
     clf.fit(x_train, y_train)
     y_pred = clf.predict(x_test)
-    print(f'K-NN classifier accuracy: {accuracy(y_test, y_pred) * 100}%')
+    print(f"K-NN classifier accuracy: {accuracy(y_test, y_pred) * 100}%")
 
 
 if __name__ == "__main__":

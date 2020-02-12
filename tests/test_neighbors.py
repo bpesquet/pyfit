@@ -26,17 +26,17 @@ def test_knn_classifier_int() -> None:
 
 def test_knn_classifier_str() -> None:
     samples = np.array([[0], [1], [2], [3]])
-    targets = np.array(['a', 'a', 'b', 'b'])
+    targets = np.array(["a", "a", "b", "b"])
 
     clf = KNeighborsClassifier()
     clf.fit(samples, targets)
 
     predicted = clf.predict(np.array([[1.1]]))
-    assert predicted[0] == 'a'
+    assert predicted[0] == "a"
 
     predicted = clf.predict(np.array([[2.2], [0.9]]))
-    assert predicted[0] == 'b'
-    assert predicted[1] == 'a'
+    assert predicted[0] == "b"
+    assert predicted[1] == "a"
 
 
 def test_knn_regressor() -> None:

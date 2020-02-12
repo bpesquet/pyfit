@@ -27,13 +27,15 @@ class KNeighborsEstimator(BaseEstimator):
         Sort all samples by (increasing) distance to new sample
         """
         # Associate training data and targets in a list of tuples
-        training_samples: List[Tuple[Tensor, Tensor]] = list(zip(
-            self.x_train, self.y_train))
+        training_samples: List[Tuple[Tensor, Tensor]] = list(
+            zip(self.x_train, self.y_train)
+        )
 
         # Sort samples by their distance to new sample
         sorted_neighbors: List[Tuple[Tensor, Tensor]] = sorted(
             ((x, y) for (x, y) in training_samples),
-            key=lambda sample: self.distance(x_new, sample[0]))
+            key=lambda sample: self.distance(x_new, sample[0]),
+        )
 
         return sorted_neighbors
 
@@ -58,11 +60,11 @@ class KNeighborsClassifier(KNeighborsEstimator):
 
         # Keep targets of the k nearest neighbors
         k_nearest_targets: List[Union[int, str]] = [
-            target for (_, target) in neighbors[:self.k]]
+            target for (_, target) in neighbors[: self.k]
+        ]
 
         # Get most frequent target in nearest neighbors
-        winner_target: Union[int, str] = Counter(
-            k_nearest_targets).most_common(1)[0][0]
+        winner_target: Union[int, str] = Counter(k_nearest_targets).most_common(1)[0][0]
 
         return winner_target
 
@@ -86,8 +88,7 @@ class KNeighborsRegressor(KNeighborsEstimator):
         neighbors = self._sort_neighbors(x_new)
 
         # Keep targets of the k nearest neighbors
-        k_nearest_targets: List[float] = [
-            target for (_, target) in neighbors[:self.k]]
+        k_nearest_targets: List[float] = [target for (_, target) in neighbors[: self.k]]
 
         # Compute the mean target value
         target_mean = np.mean(k_nearest_targets)
