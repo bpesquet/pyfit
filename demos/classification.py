@@ -24,8 +24,7 @@ def demo_knn_classifier() -> None:
         class_sep=1.5,
     )
 
-    x_train, x_test = train_test_split(x, test_ratio=0.1)
-    y_train, y_test = train_test_split(y, test_ratio=0.1)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_ratio=0.1)
 
     clf = KNeighborsClassifier(k=4)
     clf.fit(x_train, y_train)

@@ -2,21 +2,30 @@
 Utilities for preparing data before training
 """
 
-from typing import Tuple
+from typing import List
 import numpy as np
 from pyfit import Tensor
 
 
-def train_test_split(x: Tensor, *, test_ratio: float = 0.25) -> Tuple[Tensor, Tensor]:
+def train_test_split(*x: Tensor, test_ratio: float = 0.25) -> List[Tensor]:
     """
-    Split and shuffle a tensor between training and test sets, according to a chosen test ratio
+    Split and shuffle one or several same-length tensor(s) between training and test sets,
+    according to a chosen test ratio
     """
-    n_samples: int = x.shape[0]
+    n_samples: int = x[0].shape[0]
     split_index: int = round(n_samples * (1 - test_ratio))
-    x_shuffled: Tensor = np.random.permutation(x)
-    if x.ndim > 1:
-        return x_shuffled[:split_index, :], x_shuffled[split_index:, :]
-    return x_shuffled[:split_index], x_shuffled[split_index:]
+    # https://stackoverflow.com/a/4602224
+    permutation: Tensor = np.random.permutation(n_samples)
+    splitted = []
+    for tensor in x:
+        shuffled_tensor = tensor[permutation]
+        if shuffled_tensor.ndim > 1:
+            splitted.append(shuffled_tensor[:split_index, :])
+            splitted.append(shuffled_tensor[split_index:, :])
+        else:
+            splitted.append(shuffled_tensor[:split_index])
+            splitted.append(shuffled_tensor[split_index:])
+    return splitted
 
 
 def scale_min_max(x: Tensor) -> Tensor:

@@ -28,6 +28,8 @@ As a Python package, it also strives to define a clean, pythonic API and follow 
 
 ## Development Notes
 
+### Checking the code
+
 **pyfit** uses the following tools:
 
 - [black](https://github.com/psf/black) for code formatting.
@@ -37,6 +39,20 @@ As a Python package, it also strives to define a clean, pythonic API and follow 
 Run the following commands to check the codebase.
 
 ```bash
-python -m pylint ./pyfit    # linting
-python -m pytest .          # test suite
+python -m pylint ./pyfit # linting (including type checks)
+python -m mypy .         # type checks only
+python -m pytest .       # test suite
+```
+
+### Launching demos
+
+```bash
+python -m demos.<filename>
+```
+
+### Uploading the package to PyPI
+
+```bash
+python setup.py sdist bdist_wheel
+python -m twine upload dist/*
 ```
