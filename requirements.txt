@@ -1,1 +1,8 @@
+# Third-party dependencies
 numpy
+
+# Development dependencies
+pylint
+mypy
+pytest
+pytest-mypy
