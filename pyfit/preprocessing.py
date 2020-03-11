@@ -49,3 +49,15 @@ def scale_standard(x: Tensor, *, mean: Tensor = None, std: Tensor = None) -> Ten
         # Compute standard deviation feature-wise
         std = x.std(axis=0)
     return (x - mean) / std
+
+
+def vectorize_sequences(sequences: Tensor, dimension: int = 10000) -> Tensor:
+    """One-hot encode a vector of sequences into a binary matrix (number of sequences, dimension)"""
+
+    # Example : [[3, 5]] -> [[0. 0. 0. 1. 0. 1. 0...]]
+
+    results = np.zeros((len(sequences), dimension))
+    # set specific indices of results[i] to 1s
+    for i, sequence in enumerate(sequences):
+        results[i, sequence] = 1.0
+    return results

@@ -1,5 +1,6 @@
 # Third-party dependencies
 numpy
+matplotlib
 
 # Development dependencies
 pylint
