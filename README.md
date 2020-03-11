@@ -55,5 +55,5 @@ Run the following commands to check the codebase.
 
 ```bash
 > python setup.py sdist bdist_wheel
-> python -m twine upload dist/*
+> python -m twine upload dist/* --skip-existing
 ```
