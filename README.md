@@ -37,12 +37,12 @@ As a Python package, it also strives to define a clean, pythonic API and follow 
 - [pylint](https://www.pylint.org/) and [mypy](http://mypy-lang.org/) for linting.
 - [pytest](https://pytest.org) for testing.
 
-Run the following commands to check the codebase.
+Run the following commands in project root folder to check the codebase.
 
 ```bash
 > python -m pylint ./pyfit # linting (including type checks)
 > python -m mypy .         # type checks only
-> python -m pytest .       # test suite
+> python -m pytest         # test suite
 ```
 
 ### Launching demos
