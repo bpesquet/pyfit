@@ -49,8 +49,8 @@ def test_scale_min_max() -> None:
     x = np.random.randint(1, 10, (3, 3))
 
     x_scaled = scale_min_max(x)
-    assert x_scaled.min() == 0
-    assert x_scaled.max() == 1
+    assert isclose(x_scaled.min(), 0, abs_tol=1.0e-8)
+    assert isclose(x_scaled.max(), 1, abs_tol=1.0e-8)
 
 
 def test_scale_standard() -> None:
