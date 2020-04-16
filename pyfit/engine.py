@@ -9,8 +9,6 @@ Heavily inspired by https://github.com/karpathy/micrograd/blob/master/micrograd/
 
 from typing import Union, Tuple, List, Set, Callable
 
-Vector = List["Scalar"]
-
 
 class Scalar:
     """Stores a single scalar value and its gradient"""
@@ -93,7 +91,7 @@ class Scalar:
         """Compute gradients through backpropagation"""
 
         # Topological order all of the children in the graph
-        topo: List[Scalar] = []
+        topo: Vector = []
         visited: Set[Scalar] = set()
 
         def build_topo(node: Scalar) -> None:
@@ -126,3 +124,6 @@ class Scalar:
 
     def __repr__(self) -> str:
         return f"Scalar(data={self.data}, grad={self.grad})"
+
+
+Vector = List[Scalar]

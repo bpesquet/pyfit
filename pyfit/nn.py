@@ -62,11 +62,12 @@ class Layer(Module):
 class MLP(Module):
     """A Multi-Layer Perceptron, aka shallow neural network"""
 
-    def __init__(self, layers: List[int]):
-        assert len(layers) >= 2
+    def __init__(self, input_features: int, layers: List[int]):
+        sizes: List[int] = [input_features] + layers
         self.layers = [
-            Layer(layers[i], layers[i + 1]) for i in range(len(layers) - 2)
-        ] + [Layer(layers[len(layers) - 2], layers[len(layers) - 1], nonlin=False)]
+            Layer(sizes[i], sizes[i + 1], nonlin=i != len(layers) - 1)
+            for i in range(len(layers))
+        ]
 
     def __call__(self, x: Vector) -> Vector:
         for layer in self.layers:

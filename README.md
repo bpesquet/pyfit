@@ -24,7 +24,7 @@ As a Python package, it also strives to define a clean, pythonic API and follow 
 - Metrics [ [source](pyfit/metrics/) | [tests](tests/test_metrics.py) ]
 - Plotting [ [source](pyfit/plot.py) ]
 - K-Nearest Neighbors [ [source](pyfit/neighbors.py) | [tests](tests/test_neighbors.py) ]
-- Neural Networks [ [source](pyfit/nn/) ]
+- Neural Networks [ [source](pyfit/nn.py) ]
 - ... More to come!
 
 ## Development Notes
@@ -43,12 +43,6 @@ Run the following commands in project root folder to check the codebase.
 > python -m pylint ./pyfit # linting (including type checks)
 > python -m mypy .         # type checks only
 > python -m pytest         # test suite
-```
-
-### Launching demos
-
-```bash
-> python -m demos.<filename>
 ```
 
 ### Uploading the package to PyPI

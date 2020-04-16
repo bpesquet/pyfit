@@ -10,7 +10,7 @@ from pyfit.engine import Scalar, Vector
 class MSELoss:
     """Mean Squared Error loss"""
 
-    def __call__(self, y_true: Vector, y_pred: Vector) -> Scalar:
+    def __call__(self, y_pred: Vector, y_true: Vector) -> Scalar:
         """Compute MSE loss"""
 
         total_squared_error: Scalar = sum(
