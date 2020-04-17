@@ -11,14 +11,14 @@ setuptools.setup(
     author_email="bpesquet@gmail.com",
     name="pyfit",
     license="MIT",
-    description="A simple Machine Learning library",
-    version="0.0.3",
+    description="A minimalist neural networks library written for educational purposes",
+    version="0.1.1",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/bpesquet/pyfit",
     packages=setuptools.find_packages(),
     python_requires=">=3.6",
-    install_requires=["numpy", "matplotlib"],
+    install_requires=[],
     classifiers=[
         # Trove classifiers
         # (https://pypi.python.org/pypi?%3Aaction=list_classifiers)

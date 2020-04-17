@@ -6,26 +6,31 @@
 
 # pyfit
 
-**pyfit** is a simple Machine Learning library built with Python and [NumPy](https://numpy.org/) for educational purposes.
+**pyfit** is a minimalist neural networks library written from scratch in Python for educational purposes.
 
 ## Overview
 
-This project's main goal is to help ML students and enthusiasts get a deeper understanding of the Machine Learning workflow and main algorithms, by implementing them from scratch.
+This project aims to:
 
-As a Python package, it also strives to define a clean, pythonic API and follow good coding practices, including [type annotations](https://www.python.org/dev/peps/pep-0484/).
+- help Machine Learning students and enthusiasts get a deeper understanding of neural networks ;
+- demonstrate [automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation), a core concept of modern Deep Learning frameworks like PyTorch and TensorFlow ;
+- define a clean, pythonic API and follow good coding practices, including [type annotations](https://www.python.org/dev/peps/pep-0484/) and unit tests.
 
-## Status
+> This material is used in the Machine Learning course taught at [ENSC](https://ensc.bordeaux-inp.fr). [ENSEIRB-MATMECA](https://enseirb-matmeca.bordeaux-inp.fr) and [IOGS](https://www.institutoptique.fr). See also [Acknowledgments](ACKNOWLEDGMENTS.md).
 
-**pyfit** is currently in alpha status. See [Progress](https://github.com/bpesquet/pyfit/projects/1) for details.
+## Demonstration
 
-## Content
+See the [demo notebook](demo.ipynb).
 
-- Data Preprocessing [ [source](pyfit/preprocessing.py) | [tests](tests/test_preprocessing.py) ]
-- Metrics [ [source](pyfit/metrics/) | [tests](tests/test_metrics.py) ]
-- Plotting [ [source](pyfit/plot.py) ]
-- K-Nearest Neighbors [ [source](pyfit/neighbors.py) | [tests](tests/test_neighbors.py) ]
-- Neural Networks [ [source](pyfit/nn.py) ]
-- ... More to come!
+## Features
+
+- Autograd [ [source](pyfit/engine.py) | [tests](tests/test_engine.py) ]
+- Neural Networks API [ [source](pyfit/nn.py) | tests (soon!) ]
+- Losses [ [source](pyfit/loss.py) | [tests](tests/test_loss.py) ]
+- Optimizers [ [source](pyfit/optim.py) | tests (soon!) ]
+- Data Utilities [ [source](pyfit/data.py) | tests (soon!) ]
+- Metrics (soon!)
+- Training (soon!)
 
 ## Development Notes
 
