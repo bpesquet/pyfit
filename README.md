@@ -12,23 +12,23 @@
 
 This project aims to:
 
-- help Machine Learning students and enthusiasts get a deeper understanding of neural networks ;
-- demonstrate [automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation), a core concept of modern Deep Learning frameworks like PyTorch and TensorFlow ;
-- define a clean, pythonic API and follow good coding practices, including [type annotations](https://www.python.org/dev/peps/pep-0484/) and unit tests.
+- demonstrate [automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation), a core concept of modern Deep Learning frameworks like [PyTorch](https://pytorch.org) and [TensorFlow](https://www.tensorflow.org/);
+- define a simple API for creating neural nets, somehow mimicking [PyTorch Ignite](https://pytorch.org/ignite/) and [Keras](https://keras.io/);
+- follow good coding practices, including [type annotations](https://www.python.org/dev/peps/pep-0484/) and unit tests.
 
 > This material is used in the Machine Learning course taught at [ENSC](https://ensc.bordeaux-inp.fr). [ENSEIRB-MATMECA](https://enseirb-matmeca.bordeaux-inp.fr) and [IOGS](https://www.institutoptique.fr). See also [Acknowledgments](ACKNOWLEDGMENTS.md).
 
 ## Demonstration
 
-See the [demo notebook](demo.ipynb).
+The [demo notebook](demo.ipynb) showcases what **pyfit** is all about.
 
 ## Features
 
-- Autograd [ [source](pyfit/engine.py) | [tests](tests/test_engine.py) ]
-- Neural Networks API [ [source](pyfit/nn.py) | tests (soon!) ]
+- Autograd engine [ [source](pyfit/engine.py) | [tests](tests/test_engine.py) ]
+- Neural networks API [ [source](pyfit/nn.py) | tests (soon!) ]
 - Losses [ [source](pyfit/loss.py) | [tests](tests/test_loss.py) ]
 - Optimizers [ [source](pyfit/optim.py) | tests (soon!) ]
-- Data Utilities [ [source](pyfit/data.py) | tests (soon!) ]
+- Data utilities [ [source](pyfit/data.py) | tests (soon!) ]
 - Metrics (soon!)
 - Training (soon!)
 

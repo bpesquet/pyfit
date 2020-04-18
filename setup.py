@@ -11,7 +11,7 @@ setuptools.setup(
     author_email="bpesquet@gmail.com",
     name="pyfit",
     license="MIT",
-    description="A minimalist neural networks library written for educational purposes",
+    description="A minimalist neural networks library built on a tiny autograd engine",
     version="0.1.1",
     long_description=README,
     long_description_content_type="text/markdown",
