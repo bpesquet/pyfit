@@ -23,8 +23,8 @@ class BatchIterator:
         batch_size: int = 32,
         shuffle: bool = True,
     ) -> None:
-        self.inputs = inputs
-        self.targets = targets
+        self.inputs: Vector = inputs
+        self.targets: Vector = targets
         self.batch_size = batch_size
         self.shuffle = shuffle
 

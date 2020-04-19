@@ -2,8 +2,6 @@
 Optimization algorithms for gradient descent
 """
 
-# pylint: disable=too-few-public-methods
-
 from pyfit.engine import Vector
 
 
@@ -18,6 +16,11 @@ class Optimizer:
 
         for p in self.parameters:
             p.grad = 0
+
+    def step(self) -> None:
+        """Take a step of gradient descent"""
+
+        raise NotImplementedError
 
 
 class SGD(Optimizer):
