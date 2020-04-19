@@ -7,7 +7,14 @@ Loss functions
 from pyfit.engine import Scalar, Vector
 
 
-class MSELoss:
+class Loss:
+    """Mean Squared Error loss"""
+
+    def __call__(self, y_pred: Vector, y_true: Vector) -> Scalar:
+        raise NotImplementedError
+
+
+class MSELoss(Loss):
     """Mean Squared Error loss"""
 
     def __call__(self, y_pred: Vector, y_true: Vector) -> Scalar:
