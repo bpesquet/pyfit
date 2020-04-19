@@ -13,7 +13,7 @@
 This project aims to:
 
 - demonstrate [automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation), a core concept of modern Deep Learning frameworks like [PyTorch](https://pytorch.org) and [TensorFlow](https://www.tensorflow.org/);
-- define a simple API for creating neural nets, somehow mimicking [PyTorch Ignite](https://pytorch.org/ignite/) and [Keras](https://keras.io/);
+- define a simple API for training neural nets, somehow mimicking [PyTorch Ignite](https://pytorch.org/ignite/) and [Keras](https://keras.io/);
 - follow good coding practices, including [type annotations](https://www.python.org/dev/peps/pep-0484/) and unit tests.
 
 > This material is used in the Machine Learning course taught at [ENSC](https://ensc.bordeaux-inp.fr). [ENSEIRB-MATMECA](https://enseirb-matmeca.bordeaux-inp.fr) and [IOGS](https://www.institutoptique.fr). See also [Acknowledgments](ACKNOWLEDGMENTS.md).
