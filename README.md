@@ -27,8 +27,8 @@ The [demo notebook](demo.ipynb) showcases what **pyfit** is all about.
 - Autograd engine [ [source](pyfit/engine.py) | [tests](tests/test_engine.py) ]
 - Neural networks API [ [source](pyfit/nn.py) | tests (soon!) ]
 - Metrics [ [source](pyfit/metrics.py) | [tests](tests/test_metrics.py) ]
-- Optimizers [ [source](pyfit/optim.py) | tests (soon!) ]
-- Data utilities [ [source](pyfit/data.py) | tests (soon!) ]
+- Optimizers [ [source](pyfit/optim.py) | [tests](tests/test_optim.py) ]
+- Data utilities [ [source](pyfit/data.py) | [tests](tests/test_data.py) ]
 - Training API [ [source](pyfit/train.py) | tests (soon!) ]
 
 ## Development Notes
