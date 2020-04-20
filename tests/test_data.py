@@ -12,8 +12,8 @@ from pyfit.data import BatchIterator
 
 def test_batch_iterator() -> None:
     # Generate lists of 8 scalars with same values
-    inputs: Vector = list(Scalar(x) for x in range(8))
-    targets: Vector = list(Scalar(x) for x in range(8))
+    inputs: List[Vector] = [[Scalar(x)] for x in range(8)]
+    targets: Vector = [Scalar(x) for x in range(8)]
 
     batch_size = 3
     data_iterator = BatchIterator(inputs, targets, batch_size=batch_size)
@@ -24,12 +24,6 @@ def test_batch_iterator() -> None:
         assert len(batch.inputs) == len(batch.targets)
         assert len(batch.inputs) <= batch_size
         assert len(batch.targets) <= batch_size
-
-        # Since inputs and targets contain the same values,
-        # check that it is also the case for all batches
-        assert not [
-            i.data for i, t in zip(batch.inputs, batch.targets) if i.data != t.data
-        ]
 
         # Store batch size (same for inputs and targets)
         batch_sizes.append(len(batch.inputs))

@@ -64,6 +64,7 @@ class MLP(Module):
 
     def __init__(self, input_features: int, layers: List[int]):
         sizes: List[int] = [input_features] + layers
+        # Only last layer is linear
         self.layers = [
             Layer(sizes[i], sizes[i + 1], nonlin=i != len(layers) - 1)
             for i in range(len(layers))

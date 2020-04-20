@@ -5,7 +5,6 @@ Training API
 # pylint: disable=too-few-public-methods
 
 from typing import Callable, Tuple
-from pyfit.engine import Scalar
 from pyfit.nn import Module
 from pyfit.optim import Optimizer
 from pyfit.data import BatchIterator
@@ -25,12 +24,13 @@ class Trainer:
     ) -> Tuple[float, float]:
         """Fits the model to the data"""
 
-        epoch_loss = Scalar(0)
+        epoch_loss: float = 0
         epoch_acc: float = 0
         for epoch in range(num_epochs):
             # Reset the gradients of model parameters
             self.optimizer.zero_grad()
-            epoch_loss = Scalar(0)
+            # Reset epoch loss
+            epoch_loss = 0
 
             for batch in data_iterator():
                 # Forward pass
@@ -40,7 +40,7 @@ class Trainer:
                 # Loss computation
                 y_pred = [item for sublist in outputs for item in sublist]
                 batch_loss = self.loss(batch.targets, y_pred)
-                epoch_loss += batch_loss
+                epoch_loss += batch_loss.data
 
                 # Accuracy computation
                 # TODO compute epoch accuracy on whole dataset instead of last batch
@@ -51,6 +51,6 @@ class Trainer:
                 self.optimizer.step()
 
             if verbose:
-                print(f"Epoch [{epoch+1}/{num_epochs}], loss: {epoch_loss.data:.6f}")
+                print(f"Epoch [{epoch+1}/{num_epochs}], loss: {epoch_loss:.6f}")
 
-        return epoch_loss.data, epoch_acc
+        return epoch_loss, epoch_acc

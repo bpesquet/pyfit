@@ -12,7 +12,7 @@ setuptools.setup(
     name="pyfit",
     license="MIT",
     description="A minimalist neural networks library built on a tiny autograd engine",
-    version="0.1.1",
+    version="0.1.2",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/bpesquet/pyfit",
