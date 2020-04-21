@@ -4,11 +4,14 @@ Training API
 
 # pylint: disable=too-few-public-methods
 
-from typing import Callable, Tuple
+from typing import Callable, Dict, List
 from pyfit.nn import Module
 from pyfit.optim import Optimizer
 from pyfit.data import BatchIterator
 from pyfit.metrics import binary_accuracy
+
+# Used to record training history for metrics
+History = Dict[str, List[float]]
 
 
 class Trainer:
@@ -21,9 +24,10 @@ class Trainer:
 
     def fit(
         self, data_iterator: BatchIterator, num_epochs: int = 500, verbose: bool = False
-    ) -> Tuple[float, float]:
+    ) -> History:
         """Fits the model to the data"""
 
+        history: History = {"loss": [], "acc": []}
         epoch_loss: float = 0
         epoch_acc: float = 0
         for epoch in range(num_epochs):
@@ -50,7 +54,15 @@ class Trainer:
                 batch_loss.backward()
                 self.optimizer.step()
 
-            if verbose:
-                print(f"Epoch [{epoch+1}/{num_epochs}], loss: {epoch_loss:.6f}")
+            # Record training history
+            history["loss"].append(epoch_loss)
+            history["acc"].append(epoch_acc)
 
-        return epoch_loss, epoch_acc
+            if verbose:
+                print(
+                    f"Epoch [{epoch+1}/{num_epochs}], "
+                    f"loss: {epoch_loss:.6f}, "
+                    f"accuracy: {epoch_acc*100:.2f}%"
+                )
+
+        return history

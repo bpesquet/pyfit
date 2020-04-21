@@ -10,7 +10,7 @@ from pyfit.nn import MLP
 from pyfit.optim import SGD
 from pyfit.metrics import mean_squared_error
 from pyfit.data import BatchIterator
-from pyfit.train import Trainer
+from pyfit.train import Trainer, History
 
 
 def test_trainer() -> None:
@@ -24,8 +24,15 @@ def test_trainer() -> None:
     optimizer = SGD(model.parameters(), learning_rate=0.1)
     data_iterator = BatchIterator(x_train, y_train)
 
+    num_epochs = 50
     trainer = Trainer(model, optimizer, loss=mean_squared_error)
-    loss, acc = trainer.fit(data_iterator, num_epochs=50, verbose=False)
+    history: History = trainer.fit(data_iterator, num_epochs=num_epochs, verbose=False)
 
+    # Training metrics are recorded for each epoch
+    assert len(history["loss"]) == len(history["acc"]) == num_epochs
+
+    # Access final values for metrics
+    loss = history["loss"][-1]
+    acc = history["acc"][-1]
     assert loss < 0.1
     assert acc == 1.0  # 100%
