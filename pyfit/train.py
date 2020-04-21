@@ -5,6 +5,7 @@ Training API
 # pylint: disable=too-few-public-methods
 
 from typing import Callable, Dict, List
+from pyfit.engine import Vector, Scalar
 from pyfit.nn import Module
 from pyfit.optim import Optimizer
 from pyfit.data import BatchIterator
@@ -30,11 +31,15 @@ class Trainer:
         history: History = {"loss": [], "acc": []}
         epoch_loss: float = 0
         epoch_acc: float = 0
+        epoch_y_true: List[Scalar] = []
+        epoch_y_pred: List[Scalar] = []
         for epoch in range(num_epochs):
             # Reset the gradients of model parameters
             self.optimizer.zero_grad()
-            # Reset epoch loss
+            # Reset epoch data
             epoch_loss = 0
+            epoch_y_true = []
+            epoch_y_pred = []
 
             for batch in data_iterator():
                 # Forward pass
@@ -42,17 +47,20 @@ class Trainer:
                 outputs = list(map(self.model, batch.inputs))  # type: ignore
 
                 # Loss computation
-                y_pred = [item for sublist in outputs for item in sublist]
-                batch_loss = self.loss(batch.targets, y_pred)
+                batch_y_pred: Vector = [item for sublist in outputs for item in sublist]
+                batch_loss = self.loss(batch.targets, batch_y_pred)
                 epoch_loss += batch_loss.data
 
-                # Accuracy computation
-                # TODO compute epoch accuracy on whole dataset instead of last batch
-                epoch_acc = binary_accuracy(batch.targets, y_pred)
+                # Store batch predictions and ground truth for computing epoch metrics
+                epoch_y_pred.extend(batch_y_pred)
+                epoch_y_true.extend(batch.targets)
 
                 # Backprop and gradient descent
                 batch_loss.backward()
                 self.optimizer.step()
+
+            # Accuracy computation for epoch
+            epoch_acc = binary_accuracy(epoch_y_true, epoch_y_pred)
 
             # Record training history
             history["loss"].append(epoch_loss)
