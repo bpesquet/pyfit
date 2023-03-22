@@ -4,9 +4,9 @@
 [![PyPI status](https://img.shields.io/pypi/status/pyfit.svg)](https://pypi.python.org/project/pyfit)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-# pyfit
+# micrograd
 
-**pyfit** is a minimalist neural networks library written from scratch in Python for educational purposes.
+**micrograd** is a minimalist neural networks library written from scratch in Python for educational purposes. It is very much inspired by the [original micrograd library](https://github.com/karpathy/micrograd) created by Andrej Karpathy.
 
 ## Overview
 
@@ -20,7 +20,7 @@ This project aims to:
 
 ## Demonstration
 
-The [demo notebook](demo.ipynb) showcases what **pyfit** is all about.
+The [demo notebook](demo.ipynb) showcases what **micrograd** is all about.
 
 ## Features
 
@@ -35,7 +35,7 @@ The [demo notebook](demo.ipynb) showcases what **pyfit** is all about.
 
 ### Checking the code
 
-**pyfit** uses the following tools:
+**micrograd** uses the following tools:
 
 - [black](https://github.com/psf/black) for code formatting.
 - [pylint](https://www.pylint.org/) and [mypy](http://mypy-lang.org/) for linting.
