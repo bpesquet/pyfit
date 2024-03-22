@@ -1,12 +1,6 @@
-[![Build Status](https://travis-ci.org/bpesquet/pyfit.svg?branch=master&logo=travis-ci&logoColor=white)](https://travis-ci.org/bpesquet/pyfit)
-[![Python Versions](https://img.shields.io/pypi/pyversions/pyfit.svg)](https://pypi.org/project/pyfit)
-[![PyPI Version](https://img.shields.io/pypi/v/pyfit.svg)](https://pypi.org/project/pyfit)
-[![PyPI status](https://img.shields.io/pypi/status/pyfit.svg)](https://pypi.python.org/project/pyfit)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+# pyfit
 
-# micrograd
-
-**micrograd** is a minimalist neural networks library written from scratch in Python for educational purposes. It is very much inspired by the [original micrograd library](https://github.com/karpathy/micrograd) created by Andrej Karpathy.
+**pyfit** is a minimalist neural networks library written from scratch in Python for educational purposes. It is very much inspired by the [micrograd](https://github.com/karpathy/micrograd) library created by Andrej Karpathy.
 
 ## Overview
 
@@ -16,11 +10,9 @@ This project aims to:
 - define a simple API for training neural nets, somehow mimicking [Keras](https://keras.io/) and [PyTorch Ignite](https://pytorch.org/ignite/);
 - follow good coding practices, including [type annotations](https://www.python.org/dev/peps/pep-0484/) and unit tests.
 
-> This material is used in the Machine Learning course taught at [ENSC](https://ensc.bordeaux-inp.fr). [ENSEIRB-MATMECA](https://enseirb-matmeca.bordeaux-inp.fr) and [IOGS](https://www.institutoptique.fr). See also [Acknowledgments](ACKNOWLEDGMENTS.md).
-
 ## Demonstration
 
-The [demo notebook](demo.ipynb) showcases what **micrograd** is all about.
+The [demo notebook](demo.ipynb) showcases what **pyfit** is all about.
 
 ## Features
 
@@ -35,7 +27,7 @@ The [demo notebook](demo.ipynb) showcases what **micrograd** is all about.
 
 ### Checking the code
 
-**micrograd** uses the following tools:
+**pyfit** uses the following tools:
 
 - [black](https://github.com/psf/black) for code formatting.
 - [pylint](https://www.pylint.org/) and [mypy](http://mypy-lang.org/) for linting.
