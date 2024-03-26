@@ -1,10 +1,11 @@
 [tool.poetry]
 name = "pyfit"
-version = "1.0.1"
+version = "1.0.2"
 description = "A minimalist neural networks library built on a tiny autograd engine"
 authors = ["Baptiste Pesquet <bpesquet@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+repository = "https://github.com/bpesquet/pyfit"
 
 [tool.poetry.dependencies]
 python = "^3.9"

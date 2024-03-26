@@ -25,8 +25,6 @@ The [demo notebook](demo.ipynb) showcases what **pyfit** is all about.
 
 ## Development Notes
 
-### Checking the code
-
 **pyfit** uses the following tools:
 
 - [black](https://github.com/psf/black) for code formatting.
@@ -36,14 +34,7 @@ The [demo notebook](demo.ipynb) showcases what **pyfit** is all about.
 Run the following commands in project root folder to check the codebase.
 
 ```bash
-> python -m pylint pyfit tests  # linting (including type checks)
-> python -m mypy .              # type checks only
-> python -m pytest              # test suite
-```
-
-### Uploading the package to PyPI
-
-```bash
-> python setup.py sdist bdist_wheel
-> python -m twine upload dist/* --skip-existing
+> pylint pyfit/* tests/*  # linting (including type checks)
+> mypy .  # type checks only
+> pytest  # test suite
 ```
