@@ -23,10 +23,10 @@ def binary_accuracy(y_true: Vector, y_pred: Vector) -> float:
     """Binary accuracy"""
 
     n_exact: int = sum(
-        [
+        (
             y_true_i.data == round(y_pred_i.data)
             for (y_true_i, y_pred_i) in zip(y_true, y_pred)
-        ]
+        )
     )
     n_total: int = max(len(y_true), 1)
     return n_exact / n_total

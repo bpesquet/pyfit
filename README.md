@@ -1,6 +1,6 @@
 # pyfit
 
-**pyfit** is a minimalist neural networks library written from scratch in Python for educational purposes. It is very much inspired by the [micrograd](https://github.com/karpathy/micrograd) library created by Andrej Karpathy.
+A minimalist neural networks library built on a tiny autograd engine. Very much inspired by the [micrograd](https://github.com/karpathy/micrograd) library created by Andrej Karpathy.
 
 ## Overview
 

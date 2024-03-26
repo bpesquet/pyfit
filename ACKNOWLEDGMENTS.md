@@ -1,6 +1,6 @@
 # Acknowledgments
 
-The material in this repository is inspired by a large number of sources. 
+The material in this repository is inspired by a large number of sources.
 
 Here is a non-exhaustive list:
 

@@ -1,7 +1,0 @@
-# Third-party dependencies
-
-# Development dependencies
-pylint
-mypy
-pytest
-pytest-mypy
