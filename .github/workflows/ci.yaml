@@ -1,0 +1,26 @@
+name: Continuous Integration tests
+
+on:
+  # Trigger the jobs on each push to master branch
+  push:
+    branches:
+    - master
+
+jobs:
+  ci-tests:
+    runs-on: ubuntu-latest  
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install poetry
+      run: pipx install poetry
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.x"
+        cache: "poetry"
+    - name: Install dependencies
+      run: poetry install --without demo
+    - name: Check the code
+      run: poetry run pylint pyfit/* tests/*
+    - name: Run tests
+      run: poetry run pytest
